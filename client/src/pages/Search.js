@@ -4,7 +4,7 @@ import BookSearchForm from "../components/BookSearchForm";
 import Loader from "../components/Loader";
 import BooksList from "../components/BooksList";
 
-function Search() {
+const Search = () => {
     let API_URL = `https://www.googleapis.com/books/v1/volumes`;
     // let authors = ['Param', 'Vennila', 'Afrin'];
     // bookAuthors(authors);

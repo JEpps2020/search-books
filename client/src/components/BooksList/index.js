@@ -1,7 +1,7 @@
 import React from "react";
 
 // Separate the UI specific transforming logic to utils folder
-import { bookAuthors } from '../utils';
+// import { bookAuthors } from '../utils';
 
 const Book = ({ book }) => {
   return (
@@ -15,6 +15,9 @@ const Book = ({ book }) => {
           <h3>{book.volumeInfo.title}</h3>
           <p>{bookAuthors(book.volumeInfo.authors)}</p>
           <p>{book.volumeInfo.publishedDate}</p>
+          <p>{book.volumeInfo.description}</p>
+          <p>{book.items.selfLink}</p>
+          <p>{book.id}</p>
         </div>
       </div>
       <hr />

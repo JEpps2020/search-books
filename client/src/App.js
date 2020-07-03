@@ -6,7 +6,9 @@ import Nav from "./components/Nav";
 // import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
+const NoMatchRoute = () => <div>404 Page</div>;
+
+const App = () => {
   return (
     <Router>
       <div>
@@ -18,6 +20,7 @@ function App() {
           <Route exact path="/saved">
             <Saved />
           </Route>
+          <Route component={NoMatchRoute} />
         </Switch>
       </div>
     </Router>
