@@ -2,6 +2,22 @@ import React from "react";
 
 // Separate the UI specific transforming logic to utils folder
 // import { bookAuthors } from '../utils';
+const bookAuthors = authors => {
+  if (authors){
+  if (authors.length <= 2) {
+      authors = authors.join(' and ');
+  } else if (authors.length > 2) {
+      let lastAuthor = ' and ' + authors.slice(-1);
+      authors.pop();
+      authors = authors.join(', ');
+      authors += lastAuthor;
+  }
+  return authors;
+}   else {
+  authors = "Author not provided";
+}
+  return authors;
+};
 
 const Book = ({ book }) => {
   return (
@@ -16,7 +32,7 @@ const Book = ({ book }) => {
           <p>{bookAuthors(book.volumeInfo.authors)}</p>
           <p>{book.volumeInfo.publishedDate}</p>
           <p>{book.volumeInfo.description}</p>
-          <p>{book.items.selfLink}</p>
+          <p>{book.volumeInfo.infoLink}</p>
           <p>{book.id}</p>
         </div>
       </div>
