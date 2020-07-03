@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import API from "../../utils/API";
 
 // Separate the UI specific transforming logic to utils folder
 // import { bookAuthors } from '../utils';
@@ -18,6 +19,22 @@ const bookAuthors = authors => {
   authors = "Author not provided";
 }
   return authors;
+}
+
+function handleSave({book}) {
+  // event.preventDefault();
+  // if (formObject.title && formObject.author) {
+    API.saveBook({
+      id: book.id,
+      title: book.volumeInfo.title,
+      authors: [book.volumeInfo.authors],
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.infoLink
+    })
+      // .then(res => loadBooks())
+      .then(console.log("What now?"))
+      .catch(err => console.log(err));
+  // }
 };
 
 const Book = ({ book }) => {
@@ -25,9 +42,10 @@ const Book = ({ book }) => {
       <div>
         <div className="row" key={book.id}>
           <div className="col">{book.volumeInfo.title}
-          <button onClick={() => book.saveBook(book.id)} className="save">Save</button>
+          <button onClick={() => handleSave({book})} className="save">Save</button>
+          {/* <button onClick={() => book.saveBook(book.id)} className="save">Save</button> */}
           {/* <button onClick={() => book.viewBook(book.id)} className="view">View</button> */}
-          <button><a className="view" href={book.volumeInfo.infoLink} target="_blank">Link</a></button>
+          <button><a className="view" href={book.volumeInfo.infoLink} target="_blank">View</a></button>
           </div>
         </div>
         <div className="row">
