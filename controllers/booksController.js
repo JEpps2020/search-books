@@ -16,10 +16,12 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // },
   create: function(req, res) {
+    console.log("inside controller");
     db.Book
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+      console.log("finish controller")
   }
   // },
   // update: function(req, res) {

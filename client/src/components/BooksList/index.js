@@ -32,7 +32,9 @@ function handleSave({book}) {
       image: book.volumeInfo.infoLink
     })
       // .then(res => loadBooks())
-      .then(console.log("What now?"))
+      .then((res)=>{
+        console.log("books loaded");
+      })
       .catch(err => console.log(err));
   // }
 };
