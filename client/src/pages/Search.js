@@ -54,7 +54,7 @@ const Search = () => {
                 error={error}
             />    
             <Loader searchTerm={searchTerm} loading={loading} />
-            {books.totalItems !=0 ? (
+            {books.totalItems !==0 ? (
             <BooksList books={books} />
             ) : (
                 <h3>No Results to Display</h3>)}

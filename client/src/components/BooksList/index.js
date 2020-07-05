@@ -50,7 +50,7 @@ const Book = ({ book }) => {
           <button onClick={() => handleSave(book)} className="save">Save</button>
           {/* <button onClick={() => book.saveBook(book.id)} className="save">Save</button> */}
           {/* <button onClick={() => book.viewBook(book.id)} className="view">View</button> */}
-          <button><a className="view" href={book.volumeInfo.infoLink} target="_blank">View</a></button>
+          <button><a className="view" href={book.volumeInfo.infoLink} target="_blank" rel="noopener noreferrer">View</a></button>
           </div>
         </div>
         <div className="row">
