@@ -61,9 +61,18 @@ const Book = ({ book }) => {
         </div>
         <div className="row">
           <div className= "col img-fluid">
-          <img alt={`${book.volumeInfo.title} book`}
+          <img
+						alt={`${book.volumeInfo.title} book`}
+						// src={book.volumeInfo.imageLinks.thumbnail} />
+						src={
+							book.volumeInfo.imageLinks
+								? book.volumeInfo.imageLinks.thumbnail
+								: "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482930.jpg"
+						}
+					/>
+          {/* <img alt={`${book.volumeInfo.title} book`}
           src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
-        />
+        /> */}
         <span className="text">{book.volumeInfo.description}</span>
         </div>
       </div>
