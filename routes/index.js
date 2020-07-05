@@ -11,7 +11,11 @@ router.use("/api", apiRoutes);
 //   res.send("works")
 // });
 
-router.get("/", (req, res) => {
+// router.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
+
+router.use(function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 

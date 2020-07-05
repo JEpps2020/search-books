@@ -4,12 +4,11 @@ const Schema = mongoose.Schema;
 const BookSchema = new Schema({
   title: {
     type: String,
-    trim: true,
-    required: "Book title is Required"
+    trim: true
   },
 
   authors: {
-    type: [String]
+    type: Array
   },
 
   description: {

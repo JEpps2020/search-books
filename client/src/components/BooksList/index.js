@@ -21,15 +21,18 @@ const bookAuthors = authors => {
   return authors;
 }
 
-function handleSave({book}) {
+function handleSave(book) {
+  console.log(book);
   // event.preventDefault();
   // if (formObject.title && formObject.author) {
     API.saveBook({
-      id: book.id,
+      // id: book.id,
       title: book.volumeInfo.title,
-      authors: [book.volumeInfo.authors],
+      authors: book.volumeInfo.authors,
       description: book.volumeInfo.description,
-      image: book.volumeInfo.infoLink
+      image: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : "https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482930.jpg",
+			link: book.volumeInfo.infoLink
+      // image: book.volumeInfo.infoLink
     })
       // .then(res => loadBooks())
       .then((res)=>{
@@ -44,7 +47,7 @@ const Book = ({ book }) => {
       <div>
         <div className="row" key={book.id}>
           <div className="col">{book.volumeInfo.title}
-          <button onClick={() => handleSave({book})} className="save">Save</button>
+          <button onClick={() => handleSave(book)} className="save">Save</button>
           {/* <button onClick={() => book.saveBook(book.id)} className="save">Save</button> */}
           {/* <button onClick={() => book.viewBook(book.id)} className="view">View</button> */}
           <button><a className="view" href={book.volumeInfo.infoLink} target="_blank">View</a></button>
