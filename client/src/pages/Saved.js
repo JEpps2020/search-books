@@ -57,9 +57,9 @@ function Saved() {
         </Row>
         {books.length ? (
            books.map(book => (
-              <>
+              <div className="outer" key={book._id}>
               <Row>
-                <Col size="md-6" key={book._id}>
+                <Col size="md-6" >
                   {book.title}
                 </Col>
                 <Col size="md-6">
@@ -76,7 +76,7 @@ function Saved() {
                   <span className="text"> { book.description }</span>
                 </Col>
               </Row>
-             </>  
+             </div>  
            ))) : (<h3>No Results to Display</h3>)}     
       </Container>
     );
